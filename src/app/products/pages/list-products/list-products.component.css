@@ -1,0 +1,38 @@
+
+
+input{
+    border-radius: 8px ;
+    border: 1px solid lightslategray;
+    text-indent: 5px;
+    height: 40px;
+    width: 23%;
+    margin-bottom: 2%;
+
+    @media  (min-width: 400px) {
+        width: 45%;
+    }
+
+    @media  (min-width: 800px) {
+        width: 45%;
+    }
+
+    @media only screen and (min-width: 1600px) {
+        width: 25%;
+    }
+
+
+}
+
+input:hover{
+    border: 2px solid lightslategrey;
+}
+
+input:checked{
+    border: 2px solid lightslategrey;
+}
+
+#container{
+    padding: 8% 4%;
+
+}
+

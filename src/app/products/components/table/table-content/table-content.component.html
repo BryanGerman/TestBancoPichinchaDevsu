@@ -1,0 +1,22 @@
+<div>
+    <table>
+        <thead>
+            <tr>
+                <th>Logo</th>
+                <th>Nombre del producto</th>
+                <th>Description</th>
+                <th>Fecha de liberación</th>
+                <th>Fecha de reestructuración</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let content of tableContent">
+                <td><img [src]="content.logo" width="40px"></td>
+                <td>{{ content.name }}</td>
+                <td>{{ content.description }}</td>
+                <td>{{ content.date_release | date:"MM/dd/YYYY" }}</td>
+                <td>{{ content.date_revision | date: "MM/dd/YYYY" }}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

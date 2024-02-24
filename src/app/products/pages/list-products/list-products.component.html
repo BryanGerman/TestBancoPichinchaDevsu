@@ -1,0 +1,10 @@
+<div id="container">
+    <app-table-header (searchValue)="onSearchValue($event)"></app-table-header>
+    <app-table-content [tableContent]="getProductsShown()"></app-table-content>
+    <app-table-footer
+        (selectedNumberResults)="selectedNumberOfResultsEvent($event)"
+        (selectedPage)="selectedPageEvent($event)"
+        [totalNumberResults]="productLength"
+        [numberOfResultsShown]="numberOfProductsShown"></app-table-footer>
+
+</div>

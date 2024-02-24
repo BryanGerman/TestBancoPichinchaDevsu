@@ -1,0 +1,80 @@
+<div id="container">
+
+    <h1>Formulario de Registro</h1>
+    <hr>
+    <form [formGroup]="myForm" (ngSubmit)="onSave()">
+        <div class="grid">
+            <label for="id">ID</label>
+            <input type="text" formControlName="id" id="id" placeholder="Ingrese un Id">
+            <span class="error" *ngIf="isValidField('id')"> Este campo es
+                requerido </span>
+        </div>
+
+        <div class="grid">
+            <label for="name">Nombre</label>
+            <input type="text" formControlName="name" id="name" placeholder="Ingrese un nombre">
+            <span class="error" *ngIf="isValidField('name')"> Este campo es
+                requerido </span>
+        </div>
+
+        <div class="grid">
+            <label for="description">Descripción</label>
+            <input type="text" formControlName="description" id="description"
+                placeholder="Ingrese una descripción">
+            <span class="error" *ngIf="isValidField('description')">Este campo
+                es requerido</span>
+        </div>
+
+        <div class="grid">
+            <label for="logo">Logo</label>
+            <input type="text" formControlName="logo" id="logo" logo="Ingrese un enlace">
+            <span class="error" *ngIf="isValidField('description')">Este campo
+                es requerido </span>
+        </div>
+
+        <div class="grid">
+            <label for="release_date">Fecha de Liberación</label>
+            <input #resease_date formControlName="release_date" type="date" (change)="onChange(resease_date.value)" id="release_date" required [min]="now">
+            <span class="error" *ngIf="isValidField('release_date')"> Este campo
+                es requerido </span>
+        </div>
+
+        <div class="grid">
+            <label for="revision_date">Fecha de Revisión</label>
+            <input type="date" formControlName="revision_date" [value]="afterOneYear" id="revision_date" >
+            <span class="error" *ngIf="isValidField('revision_date')"> Este
+                campo es requerido </span>
+        </div>
+
+        <div class="grid restartButton">
+            <button class="button" type="reset">
+                Reiniciar
+            </button>
+        </div>
+        <div class="grid addButton">
+            <button class="button addButtonColor" type="submit">
+                Enviar
+            </button>
+        </div>
+    </form>
+
+    <pre>
+        {{ myForm.controls["id"].errors | json }}
+    </pre>
+    <pre>
+        {{ myForm.controls["name"].errors | json }}
+    </pre>
+    <pre>
+        {{ myForm.controls["description"].errors | json }}
+    </pre>
+    <pre>
+        {{ myForm.controls["logo"].errors | json }}
+    </pre>
+    <pre>
+        {{ myForm.controls["release_date"].errors | json }}
+    </pre>
+    <pre>
+        {{ myForm.controls["revision_date"].errors | json }}
+    </pre>
+
+</div>

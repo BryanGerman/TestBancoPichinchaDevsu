@@ -1,0 +1,19 @@
+<div class="container" class="table-footer">
+    <div class="row">
+        <div class="column" id="result-counter">
+            {{ numberOfResultsShown }} Resultados
+        </div>
+        <div class="column" id="page-counter">
+            <select #pages (change)="onSelectChange(pages.value)">
+                <option *ngFor="let item of resultsCountOption"
+                    [value]="item">{{ item }}</option>
+            </select>
+        </div>
+
+    </div>
+    <div class="pagination" *ngIf="showPagination()">
+        <button (click)="onClickPage(1)">&laquo;</button>
+        <button #page (click)="onClickPage(page.textContent)" *ngFor="let item of numberOfPagesShown()">{{ item }}</button>
+        <button (click)="onClickPage(totalPages)">&raquo;</button>
+    </div>
+</div>

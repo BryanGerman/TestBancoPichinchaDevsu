@@ -1,0 +1,12 @@
+<div id="container">
+    <div class="row-list">
+        <div id="inputSearch" class="column-list">
+            <input #search type="text" placeholder="Search..."
+                (keyup)="onInputChange(search.value)">
+        </div>
+        <div id="addButton" class="column-list">
+            <button id="button" (click)="onAddButton()"> Agregar </button>
+        </div>
+    
+    </div>
+</div>

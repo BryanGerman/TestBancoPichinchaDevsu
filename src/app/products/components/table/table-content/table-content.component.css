@@ -1,0 +1,31 @@
+div{
+    overflow-x: auto;
+    padding: 25px;
+    background-color: white;
+}
+
+table{
+    border-spacing: 0;
+    border-collapse: collapse;
+    background-color: white;
+    width: 100%;
+}
+
+thead{
+    background-color: #f9fafc;
+    color: #727276;
+}
+
+
+th,td{
+    text-align: left;
+    vertical-align: middle;
+    border-bottom: 1pt inset ;
+    padding-left: 75px;
+    padding-bottom: 1%;
+    padding-top: 1%;
+    color: #848486;
+    font-weight: bold;
+    
+}
+

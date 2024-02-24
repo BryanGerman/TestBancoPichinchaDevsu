@@ -1,0 +1,66 @@
+input{
+    border-radius: 8px ;
+    border: 1px solid lightslategray;
+    text-indent: 5px;
+    height: 40px;
+    width: 23%;
+
+    @media  (min-width: 400px) {
+        width: 45%;
+    }
+
+    @media  (min-width: 800px) {
+        width: 45%;
+    }
+
+    @media only screen and (min-width: 1600px) {
+        width: 25%;
+    }
+
+
+}
+
+input:hover{
+    border: 2px solid lightslategrey;
+}
+
+input:checked{
+    border: 2px solid lightslategrey;
+}
+
+.column-list {
+    width: 50%;
+    vertical-align: middle;
+}
+
+.row-list:after {
+    content: "";
+    display: table;
+    clear: both;
+    vertical-align: middle;
+    padding-bottom: 1.5%;
+}
+
+#inputSearch{
+    float: inline-start;
+}
+
+#addButton{
+    float: inline-end;
+    text-align: right;
+}
+
+
+#button{
+    background-color: #f9de4b;
+    border: none;
+    padding: 15px 25px 15px 25px;
+    border-radius: 4px;
+}
+
+#button::content{
+    font-weight: bold;
+    font-size: 1rem;
+    color: #494e51;
+}
+
