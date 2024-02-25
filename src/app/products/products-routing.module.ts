@@ -19,12 +19,16 @@ const routes: Routes = [
         component: NewPageComponent
       },
       {
+        path: "update/:id",
+        component: NewPageComponent
+      },
+      {
         path: "error",
         component: ErrorComponent
       },
       {
         path: "**",
-        redirectTo: "new"
+        redirectTo: "list"
       }
     ]
   }

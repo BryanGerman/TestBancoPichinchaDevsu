@@ -20,7 +20,6 @@ export class TableHeaderComponent {
   }
 
   public onAddButton(): void{
-    console.log("click")
-    this._router.navigateByUrl("products/new")
+    this._router.navigate(["products/new"])
   }
 }

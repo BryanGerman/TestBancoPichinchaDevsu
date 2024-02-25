@@ -31,6 +31,17 @@ form {
     padding-bottom: 2%;
 }
 
+.grid-row {
+    float: left;
+    width: 100%;
+}
+
+.grid-errors {
+    float: left;
+    width: 50%;
+    padding-bottom: 2%;
+}
+
 .restartButton {
     margin-top: 5%;
     text-align: right;
@@ -59,16 +70,24 @@ form {
     color: #494e51;
 }
 
+.button:disabled{
+    background-color: #fbefae;
+}
+
 
 label {
     display: block;
 }
 
-input:not(#submit-button) {
+input {
     display: inline-block;
-    width: 95%;
+    width: 98%;
     height: 10px;
     padding: 1rem;
+}
+
+red {
+    border-color: red;
 }
 
 #submit-button {
@@ -93,5 +112,6 @@ form:valid>div>#submit-button {
 
 .error{
     color: red;
-    font-size: 10px;
+    font-size: 12px;
 }
+

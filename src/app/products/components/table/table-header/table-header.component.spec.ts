@@ -1,6 +1,9 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { TableHeaderComponent } from './table-header.component';
+import { of } from 'rxjs';
+import { RouterTestingModule } from '@angular/router/testing';
+import { Router } from '@angular/router';
 
 describe('TableHeaderComponent', () => {
   let component: TableHeaderComponent;
@@ -8,7 +11,15 @@ describe('TableHeaderComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [TableHeaderComponent]
+      declarations: [TableHeaderComponent],
+      providers:[
+        {
+          provide: Router, useValue: {
+            "navigate": of(true)
+          }
+        }
+      ],
+      imports:[RouterTestingModule]
     })
     .compileComponents();
     
@@ -20,4 +31,11 @@ describe('TableHeaderComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should onInputChange', () => {
+    component.onInputChange("x")
+    expect(component).toBeTruthy();
+  });
+
+
 });

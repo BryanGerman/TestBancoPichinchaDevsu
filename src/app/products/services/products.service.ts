@@ -20,4 +20,36 @@ export class ProductsService {
       catchError( error => of(undefined))
     );
   }
+
+  public createProduct(product: Product): Observable<Product | undefined>{
+    return this._httpClient.post<Product>(this._baseUrl, product, {headers: this._headers}).pipe(
+      catchError( error => {
+        return of(undefined)
+      })
+    )
+  }
+
+  public verifyIdProduct(id: string): Observable<boolean | undefined>{
+    return this._httpClient.get<boolean>(`${this._baseUrl}/verification?id=${id}`, {headers: this._headers}).pipe(
+      catchError( error => {
+        return of(undefined)
+      })
+    )
+  }
+
+  public deleteProduct(id: string): Observable<boolean | undefined>{
+    return this._httpClient.delete<boolean>(`${this._baseUrl}?id=${id}`, {headers: this._headers}).pipe(
+      catchError( error => {
+        return of(undefined)
+      })
+    )
+  }
+
+  public updateProduct(product: Product){
+    return this._httpClient.put<Product>(`${this._baseUrl}`, product, {headers: this._headers}).pipe(
+      catchError( error => {
+        return of(undefined)
+      })
+    )
+  }
 }

@@ -1,4 +1,4 @@
-<div>
+<div id="container">
     <table>
         <thead>
             <tr>
@@ -7,16 +7,48 @@
                 <th>Description</th>
                 <th>Fecha de liberación</th>
                 <th>Fecha de reestructuración</th>
+                <th></th>
+
             </tr>
         </thead>
-        <tbody>
-            <tr *ngFor="let content of tableContent">
-                <td><img [src]="content.logo" width="40px"></td>
-                <td>{{ content.name }}</td>
-                <td>{{ content.description }}</td>
-                <td>{{ content.date_release | date:"MM/dd/YYYY" }}</td>
-                <td>{{ content.date_revision | date: "MM/dd/YYYY" }}</td>
-            </tr>
-        </tbody>
+        <div *ngIf="tableContent.length === 0; else body">
+            <p class="skeleton">Cargando datos...</p>
+        </div>
+        <ng-template #body>
+            <tbody>
+                <tr *ngFor="let content of tableContent">
+                    <td><img [src]="content.logo" width="40px"></td>
+                    <td>{{ content.name }}</td>
+                    <td>{{ content.description }}</td>
+                    <td>{{ content.date_release | date:"MM/dd/YYYY" }}</td>
+                    <td>{{ content.date_revision | date: "MM/dd/YYYY" }}</td>
+                    <td>
+                        <div class="dropdown">
+                            <button id="dropdown-button"><img width="20px" height="20px"
+                                    src="/assets/images/dot.png" /></button>
+                            <div class="dropdown-options">
+                                <a [routerLink]="['/products/update/', content.id]">Editar</a>
+                                <a (click)="onClickDelete(content.id, content.name)">Eliminar</a>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </ng-template>
+        
+        
     </table>
 </div>
+
+<dialog id="my-dialog">
+    <p class="modalText">¿Estás seguro de eliminar el producto {{ name }}?</p>
+    <hr>
+    <form method="dialog">
+        <div class="grid ">
+            <button class="buttonModal" (click)="closeDialog()">Cancelar</button>
+        </div>
+        <div class="grid">
+            <button class="buttonModal buttonConfirm" (click)="confirmDialog()">Confirmar</button>
+        </div>
+    </form>
+  </dialog>

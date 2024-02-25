@@ -12,7 +12,7 @@ import { Router } from '@angular/router';
 export class ListProductsComponent {
 
   public searchValue: string = '';
-  public products: Product[] = [];
+  public products: Product[] | undefined = [];
   public selectedNumberOfResults: number = 5;
   public selectedPage: number = 1;
   public numberOfProductsShown: number = 0;
@@ -22,13 +22,14 @@ export class ListProductsComponent {
   constructor(
     private _productService: ProductsService,
     private _router: Router
-    ){
+  ) {
     this.getProducts();
   }
 
-  public getProducts(){
-    return this._productService.getProducts().subscribe( (products: Product[] | undefined) => {
-      if (!products){
+  public getProducts() {
+
+    return this._productService.getProducts().subscribe((products: Product[] | undefined) => {
+      if (!products) {
         this._router.navigateByUrl("error");
         return;
       }
@@ -37,24 +38,24 @@ export class ListProductsComponent {
     })
   }
 
-  public getProductsShown(){
-    if(this.products.length !== 0){
-      let productsShown = this.products.filter( product => product.name.includes(this.searchValue)).slice((this.selectedPage - 1) * this.selectedNumberOfResults ,this.selectedNumberOfResults * this.selectedPage)
+  public getProductsShown() {
+    if (this. products && this.products.length !== 0) {
+      let productsShown = this.products.filter(product => product.name.includes(this.searchValue)).slice((this.selectedPage - 1) * this.selectedNumberOfResults, this.selectedNumberOfResults * this.selectedPage)
       this.numberOfProductsShown = productsShown.length
       return productsShown
     }
     return [];
   }
 
-  public selectedNumberOfResultsEvent(selectedOption: number){
+  public selectedNumberOfResultsEvent(selectedOption: number) {
     this.selectedNumberOfResults = selectedOption;
   }
 
-  public selectedPageEvent(page: number){
+  public selectedPageEvent(page: number) {
     this.selectedPage = page;
   }
 
-  public onSearchValue(text: string){
+  public onSearchValue(text: string) {
     this.searchValue = text;
   }
 
